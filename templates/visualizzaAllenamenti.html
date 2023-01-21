@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allenamenti - Visualizza allenamenti</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Visualizza allenamenti</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Esercizio</th>
+            <th>Ripetizioni</th>
+            <th>Serie</th>
+            <th>Riposo (min)</th>
+            <th>Giorno</th>
+            <th>Gruppo muscolare</th>
+        </tr>
+        {% for dato in dati %}
+        <tr>
+            <td>{{dato[0]}}</td>
+            <td>{{dato[1]}}</td>
+            <td>{{dato[2]}}</td>
+            <td>{{dato[3]}}</td>
+            <td>{{dato[4]}}</td>
+            <td>{{dato[5]}}</td>
+            <td>{{dato[6]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

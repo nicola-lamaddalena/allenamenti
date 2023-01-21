@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allenamenti - Nuovo allenamento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Nuovo allenamento</h1>
+    <form method="POST" action="#">
+        <input type="text" name="nome">
+        <label for="nome">Esercizio</label>
+
+        <input type="number" name="ripetizioni" min="1" required>
+        <label for="ripetizioni">Numero ripetizioni</label>
+
+        <input type="number" name="serie" min="1" required>
+        <label for="serie">Numero serie</label>
+
+        <input type="number" name="riposo" min="0" required>
+        <label for="riposo">Riposo (minuti)</label>
+
+        <input type="date" name="giorno" required>
+        <label for="giorno">Giorno</label>
+
+        <input type="number" name="gruppo_musc" min="1" max="8" required>
+        <label for="gruppo_musc">Gruppo muscolare</label>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Invia</button>
+        <a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
+
+    </form>
+</body>
+
+</html>
