@@ -26,14 +26,14 @@ def aggiungi_allenamento():
         riposo = float(request.form.get("riposo"))
         giorno = request.form.get("giorno")
         gruppo_musc = int(request.form.get("gruppo_musc"))
-        conn = Connessione("fitness.db")
+        conn = Connessione(DB)
         conn.insert(esercizio, ripetizioni, serie, riposo, giorno, gruppo_musc)
 
     return render_template("nuovoAllenamento.html")
 
 @app.route("/visualizzaAllenamenti")
 def visualizza_allenamenti():
-    conn = Connessione("fitness.db")
+    conn = Connessione(DB)
     dati = conn.display()
     return render_template('visualizzaAllenamenti.html', dati=dati)
 
