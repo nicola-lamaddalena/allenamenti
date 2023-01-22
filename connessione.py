@@ -74,4 +74,5 @@ class Connessione:
             """)
         return self.cursor.fetchall()
 
-    
+    # todo Update(modifica esercizio già presente)
+    # todo Delete(elimina esercizio già presente)

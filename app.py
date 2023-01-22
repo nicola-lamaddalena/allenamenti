@@ -9,12 +9,8 @@ GRAFICI_DIR = os.path.join("static", "graficiAllenamenti")
 app = Flask(__name__)
 app.config["CARICA_DIR"] = GRAFICI_DIR
 
-
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
-        render_template("nuovoAllenamento.html")
-
     return render_template("index.html")
 
 @app.route("/nuovoAllenamento", methods=["GET", "POST"])
