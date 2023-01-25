@@ -38,24 +38,21 @@ class Connessione:
                 ("Dorsali"),
                 ("Trapezi"),
                 ("Quadricipiti"),
-                ("Polpacci")
-            ;
+                ("Polpacci");
         """)
         self.conn.commit()
 
     def insert(self,
-                            nome: str,
-                            numero_ripetizioni: int,
-                            numero_serie: int,
-                            riposo_minuti: float,
-                            giorno: datetime,
-                            gruppo_muscolare: int):
+                nome: str,
+                numero_ripetizioni: int,
+                numero_serie: int,
+                riposo_minuti: float,
+                giorno: datetime,
+                gruppo_muscolare: int):
         self.cursor.execute("""
             INSERT INTO esercizi(nome, numero_ripetizioni, numero_serie, riposo_minuti, giorno, gruppo_muscolare)
             VALUES(?,?,?,?,?,?);
-        """, 
-        (nome, numero_ripetizioni, numero_serie, riposo_minuti, giorno, gruppo_muscolare)
-        )
+            """, (nome, numero_ripetizioni, numero_serie, riposo_minuti, giorno, gruppo_muscolare))
         self.conn.commit()
 
     def display(self):
@@ -69,10 +66,26 @@ class Connessione:
                 giorno, 
                 gruppo_muscolare.nome AS gruppo_muscolare
             FROM esercizi
-            JOIN gruppo_muscolare
-            ON esercizi.gruppo_muscolare = gruppo_muscolare.id;
+            INNER JOIN gruppo_muscolare
+            ON gruppo_muscolare.id = esercizi.gruppo_muscolare;
             """)
         return self.cursor.fetchall()
 
-    # todo Update(modifica esercizio già presente)
-    # todo Delete(elimina esercizio già presente)
+    def gp(self):
+        # serve per mostrare a schermo gli id associati ad ogni
+        # gruppo muscolare per facilitare l'inserimento di un
+        # nuovo esercizio
+        self.cursor.execute("""
+            SELECT id, nome
+            FROM gruppo_muscolare
+            """)
+        return self.cursor.fetchall()
+
+    def cancella(self, id: int):
+        # eliminare un esercizio in base all'id
+        self.cursor.execute("""
+            DELETE 
+            FROM esercizi 
+            WHERE id=?;
+            """, (id,))
+        self.conn.commit()

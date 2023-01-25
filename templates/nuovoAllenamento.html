@@ -11,30 +11,64 @@
 
 <body>
     <h1>Nuovo allenamento</h1>
-    <form method="POST" action="#">
-        <input type="text" name="nome">
-        <label for="nome">Esercizio</label>
+    <div class="row">
+        <div class="column left">
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Gruppo muscolare</th>
+                </tr>
+                {% for gruppo in gruppi %}
+                <tr>
+                    <td>{{gruppo[0]}}</td>
+                    <td>{{gruppo[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="column center">
+            <form method="POST" action="#">
+                <div>
+                    <input type="text" name="nome" required autofocus placeholder="Esercizio">
+                </div>
 
-        <input type="number" name="ripetizioni" min="1" required>
-        <label for="ripetizioni">Numero ripetizioni</label>
+                <div>
+                    <input type="number" name="ripetizioni" min="1" required placeholder="Numero ripetizioni">
+                </div>
 
-        <input type="number" name="serie" min="1" required>
-        <label for="serie">Numero serie</label>
+                <div>
+                    <input type="number" name="serie" min="1" required placeholder="Numero serie">
+                </div>
 
-        <input type="number" name="riposo" min="0" required>
-        <label for="riposo">Riposo (minuti)</label>
+                <div>
+                    <input type="number" name="riposo" min="0" required placeholder="Riposo (minuti)">
+                </div>
 
-        <input type="date" name="giorno" required>
-        <label for="giorno">Giorno</label>
+                <div>
+                    <input type="date" name="giorno" required>
+                </div>
 
-        <input type="number" name="gruppo_musc" min="1" max="8" required>
-        <label for="gruppo_musc">Gruppo muscolare</label>
+                <div>
+                    <input type="number" name="gruppo_musc" min="1" max="8" required placeholder="Gruppo muscolare">
+                </div>
 
-        <button type="reset">Reset</button>
-        <button type="submit">Invia</button>
-        <a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
+                <div>
+                    <button type="reset">Reset</button>
+                </div>
 
-    </form>
+                <div>
+                    <button type="submit">Invia</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="column right">
+            <div class="row redirect">
+                <a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
