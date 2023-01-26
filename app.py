@@ -34,12 +34,13 @@ def aggiungi_allenamento():
 @app.route("/visualizzaAllenamenti", methods=["GET", "POST"])
 def visualizza_allenamenti():
     conn = Connessione(DB)
-    dati = conn.display()
+    dati = conn.ordina_data()
 
     if request.method == "POST":
-        id_esercizio = request.form.get("elimina")
-        conn.cancella(id_esercizio)
-        dati = conn.display()
+        if request.form.get("elimina") == "Elimina esercizio":
+            id_esercizio = request.form.get("elimina")
+            conn.cancella(id_esercizio)
+            dati = conn.ordina_data()
 
     return render_template('visualizzaAllenamenti.html', dati=dati)
 
@@ -52,12 +53,12 @@ def viz():
 
     if not os.path.exists(full_filename):
         for dato in dati:
-            plt.bar(dato[1], dato[2])
+            plt.barh(dato[1], dato[2])
             plt.savefig(full_filename)
     else:
         os.remove(full_filename)
         for dato in dati:
-            plt.bar(dato[1], dato[2])
+            plt.barh(dato[1], dato[2])
             plt.savefig(full_filename)
 
     return render_template("grafici.html", grafico = full_filename)
