@@ -58,16 +58,33 @@ class Connessione:
     def display(self):
         self.cursor.execute("""
             SELECT
-                esercizi.id,
+                giorno,
                 esercizi.nome, 
+                gruppo_muscolare.nome AS gruppo_muscolare,
                 numero_ripetizioni, 
                 numero_serie, 
                 riposo_minuti, 
-                giorno, 
-                gruppo_muscolare.nome AS gruppo_muscolare
+                esercizi.id
             FROM esercizi
             INNER JOIN gruppo_muscolare
             ON gruppo_muscolare.id = esercizi.gruppo_muscolare;
+            """)
+        return self.cursor.fetchall()
+
+    def ordina_data(self):
+        self.cursor.execute("""
+            SELECT 
+                giorno,
+                esercizi.nome, 
+                gruppo_muscolare.nome AS gruppo_muscolare,
+                numero_ripetizioni, 
+                numero_serie, 
+                riposo_minuti, 
+                esercizi.id
+            FROM esercizi
+            INNER JOIN gruppo_muscolare
+            ON gruppo_muscolare.id = esercizi.gruppo_muscolare
+            ORDER BY giorno ASC;
             """)
         return self.cursor.fetchall()
 

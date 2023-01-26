@@ -15,9 +15,6 @@ app = Flask(__name__)
 app.config["CARICA_DIR"] = GRAFICI_DIR
 
 @app.route("/", methods=["GET", "POST"])
-def index():
-    return render_template("index.html")
-
 @app.route("/nuovoAllenamento", methods=["GET", "POST"])
 def aggiungi_allenamento():
     conn = Connessione(DB)
@@ -42,6 +39,7 @@ def visualizza_allenamenti():
     if request.method == "POST":
         id_esercizio = request.form.get("elimina")
         conn.cancella(id_esercizio)
+        dati = conn.display()
 
     return render_template('visualizzaAllenamenti.html', dati=dati)
 
@@ -53,12 +51,13 @@ def viz():
     dati = conn.display()
 
     if not os.path.exists(full_filename):
-        # crea il grafico con i dati di tutti gli allenamenti nel DB
-        plt.bar([dato[4] for dato in dati], [dato[1] for dato in dati])
-        plt.savefig(full_filename)
+        for dato in dati:
+            plt.bar(dato[1], dato[2])
+            plt.savefig(full_filename)
     else:
         os.remove(full_filename)
-        plt.bar([dato[4] for dato in dati], [dato[1] for dato in dati])
-        plt.savefig(full_filename)
+        for dato in dati:
+            plt.bar(dato[1], dato[2])
+            plt.savefig(full_filename)
 
     return render_template("grafici.html", grafico = full_filename)

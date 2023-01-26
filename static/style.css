@@ -1,19 +1,3 @@
-a {
-    text-decoration: none;
-    background-color: blue;
-    color: white;
-    font-size: large;
-    padding: 10px;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
-}
-
-a:hover {
-    background-color: red;
-    color: white;
-}
-
 body {
     background-color: white;
     color: darkblue;
@@ -39,32 +23,27 @@ h1 {
 }
 
 .left {
-    width: auto;
+    width: 15%;
 }
 
 .right {
-    width: auto;
+    width: 15%;
 }
 
 .center {
-    width: auto;
+    width: 70%;
 }
 
 table,
 th,
 td {
     color: black;
-    background-color: rgb(230, 226, 226);
-    border-collapse: collapse;
+    background-color: rgb(196, 186, 233);
     border: 1px solid;
-}
-
-table {
-    width: 100%;
-}
-
-th {
-    height: 70px;
+    border-radius: 3px;
+    border-collapse: collapse;
+    box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }
 
 th,
@@ -73,10 +52,107 @@ td {
     text-align: left;
 }
 
-tr:hover {
-    background-color: aliceblue;
-}
 
 th {
-    background-color: gold;
+    background-color: rgb(255, 255, 255);
+}
+
+.div.imgGraf {
+    padding: 20px;
+    background-color: red;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: darkslateblue;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: large;
+    padding: 10px;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+ul {
+    position: fixed;
+    top: 0;
+    width: auto;
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+}
+
+.card:hover {
+    box-shadow: 2px 8px 12px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 20px 16px;
+}
+
+.card button {
+    margin-top: 20px;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+    /* background-color: red;
+    color: whitesmoke; */
+}
+
+.card input {
+    border: none;
+    box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.2);
+    outline: 0;
+    padding: 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: text;
+    width: 80%;
+    font-size: 18px;
+}
+
+.card input:hover {
+    /* opacity: 0.2; */
+    background-color: rgb(196, 186, 233);
+    color: whitesmoke;
+}
+
+#tab_musc {
+    display: none;
 }

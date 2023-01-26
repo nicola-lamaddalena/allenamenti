@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="it">
+{% extends "base.html" %}
+{% block title %}Allenamenti - Nuovo allenamento{% endblock %}
+{% block link1 %}
+<a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
+{% endblock %}
+{% block link2 %}
+<a href="{{ url_for('viz') }}">Visualizza grafici</a>
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allenamenti - Nuovo allenamento</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-
-<body>
-    <h1>Nuovo allenamento</h1>
-    <div class="row">
+{% block h1 %}Nuovo allenamento{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="column left">
         <div class="column left">
-            <table>
+            <table id="tab_musc">
                 <tr>
                     <th>Id</th>
                     <th>Gruppo muscolare</th>
@@ -26,49 +25,59 @@
                 {% endfor %}
             </table>
         </div>
-        <div class="column center">
-            <form method="POST" action="#">
-                <div>
-                    <input type="text" name="nome" required autofocus placeholder="Esercizio">
-                </div>
+    </div>
+    <div class="column center">
+        <div class="card">
+            <div class="container">
 
-                <div>
-                    <input type="number" name="ripetizioni" min="1" required placeholder="Numero ripetizioni">
-                </div>
+                <form method="POST" action="#">
+                    <div>
+                        <input type="text" name="nome" required autofocus placeholder="Esercizio">
+                    </div>
 
-                <div>
-                    <input type="number" name="serie" min="1" required placeholder="Numero serie">
-                </div>
+                    <div>
+                        <input type="number" name="ripetizioni" min="1" required placeholder="Numero ripetizioni">
+                    </div>
 
-                <div>
-                    <input type="number" name="riposo" min="0" required placeholder="Riposo (minuti)">
-                </div>
+                    <div>
+                        <input type="number" name="serie" min="1" required placeholder="Numero serie">
+                    </div>
 
-                <div>
-                    <input type="date" name="giorno" required>
-                </div>
+                    <div>
+                        <input type="number" name="riposo" min="0" required placeholder="Riposo (minuti)">
+                    </div>
 
-                <div>
-                    <input type="number" name="gruppo_musc" min="1" max="8" required placeholder="Gruppo muscolare">
-                </div>
+                    <div>
+                        <input type="date" name="giorno" required>
+                    </div>
 
-                <div>
-                    <button type="reset">Reset</button>
-                </div>
+                    <div>
+                        <input type="number" name="gruppo_musc" min="1" max="8" required placeholder="Gruppo muscolare"
+                            onclick="mostraTabella()">
+                    </div>
 
-                <div>
-                    <button type="submit">Invia</button>
-                </div>
+                    <div>
+                        <button type="submit">Invia</button>
+                        <button type="reset">Reset</button>
+                    </div>
 
-            </form>
-        </div>
-        <div class="column right">
-            <div class="row redirect">
-                <a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
+                </form>
             </div>
         </div>
     </div>
+    <div class="column right"></div>
+</div>
+</div>
 
-</body>
+<script>
+    function mostraTabella() {
+        var tabella = document.getElementById("tab_musc");
+        if (tabella.style.display == "none") {
+            tabella.style.display = "block";
+        } else {
+            tabella.style.display = "none";
+        }
+    }
+</script>
 
-</html>
+{% endblock %}
