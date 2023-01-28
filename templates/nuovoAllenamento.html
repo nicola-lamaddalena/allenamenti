@@ -3,9 +3,6 @@
 {% block link1 %}
 <a href="{{ url_for('visualizza_allenamenti') }}">Visualizza allenamenti</a>
 {% endblock %}
-{% block link2 %}
-<a href="{{ url_for('viz') }}">Visualizza grafici</a>
-{% endblock %}
 
 {% block h1 %}Nuovo allenamento{% endblock %}
 {% block content %}
@@ -52,7 +49,7 @@
                     </div>
 
                     <div>
-                        <input type="number" name="gruppo_musc" min="1" max="8" required placeholder="Gruppo muscolare"
+                        <input type="number" name="gruppo_musc" min="1" max="9" required placeholder="Gruppo muscolare"
                             onclick="mostraTabella()">
                     </div>
 

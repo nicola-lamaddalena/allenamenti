@@ -1,1 +1,4 @@
-Web app scritta in Python con Flask e SQLite3 per tenere traccia degli allenamenti.
+Web app creata per tenere traccia degli allenamenti.
+
+Scritta in Python usando Flask e SQLite3 per il backend.
+

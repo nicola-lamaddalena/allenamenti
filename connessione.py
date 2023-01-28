@@ -57,22 +57,6 @@ class Connessione:
 
     def display(self):
         self.cursor.execute("""
-            SELECT
-                giorno,
-                esercizi.nome, 
-                gruppo_muscolare.nome AS gruppo_muscolare,
-                numero_ripetizioni, 
-                numero_serie, 
-                riposo_minuti, 
-                esercizi.id
-            FROM esercizi
-            INNER JOIN gruppo_muscolare
-            ON gruppo_muscolare.id = esercizi.gruppo_muscolare;
-            """)
-        return self.cursor.fetchall()
-
-    def ordina_data(self):
-        self.cursor.execute("""
             SELECT 
                 giorno,
                 esercizi.nome, 
@@ -88,10 +72,7 @@ class Connessione:
             """)
         return self.cursor.fetchall()
 
-    def gp(self):
-        # serve per mostrare a schermo gli id associati ad ogni
-        # gruppo muscolare per facilitare l'inserimento di un
-        # nuovo esercizio
+    def tab_gruppi_musc(self):
         self.cursor.execute("""
             SELECT id, nome
             FROM gruppo_muscolare

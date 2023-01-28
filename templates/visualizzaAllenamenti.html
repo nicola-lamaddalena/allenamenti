@@ -3,12 +3,19 @@
 {% block link1 %}
 <a href="{{ url_for('aggiungi_allenamento') }}">Aggiungi allenamento</a>
 {% endblock %}
-{% block link2%}
-<a href="{{ url_for('viz') }}">Visualizza grafici</a>
-{% endblock %}
 
 {% block h1 %}Visualizza allenamenti{% endblock %}
 {% block content %}
+<div class="row">
+    <div class="column left">
+        <form action="#" method="post" style="width: 100%;">
+            <input type="number" name="elimina" value="id" placeholder="id" min="1" required id="eliminaInput">
+            <input type="submit" value="Elimina esercizio" id="eliminaSubmit">
+        </form>
+    </div>
+    <div class="column center"></div>
+    <div class="column right"></div>
+</div>
 <div class="row">
     <div class="column center" style="overflow-x:auto;">
         <table id="table_all">
@@ -30,17 +37,6 @@
             </tr>
             {% endfor %}
         </table>
-    </div>
-</div>
-<div class="row">
-    <div class="column left"></div>
-    <div class="column center">
-        <form action="#" method="post">
-            <input type="number" name="elimina" value="id" placeholder="id" min="1" required autofocus>
-            <input type="submit" value="Elimina esercizio">
-        </form>
-    </div>
-    <div class="column right">
     </div>
 </div>
 {% endblock %}

@@ -32,6 +32,7 @@ h1 {
 
 .right {
     width: 15%;
+    position: right;
 }
 
 .center {
@@ -143,9 +144,15 @@ li a:hover {
 }
 
 .card input:hover {
-    /* opacity: 0.2; */
+    opacity: 0.4;
     background-color: rgb(196, 186, 233);
     color: whitesmoke;
+}
+
+.card input:focus {
+    opacity: 1;
+    background-color: rgb(196, 186, 233);
+    color: rgb(0, 0, 0);
 }
 
 #tab_musc {
@@ -168,4 +175,42 @@ li a:hover {
     background-color: rgb(0, 0, 0);
     margin-bottom: 15px;
     width: 100%;
+    font-size: larger;
+}
+
+#eliminaInput {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20%;
+    position: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 138, 139);
+    border: none;
+}
+
+#eliminaInput:focus {
+    box-shadow: 2px 2px 3px 3px rgb(138, 138, 139);
+    transition: 0.3s;
+}
+
+#eliminaSubmit {
+    background-color: rgba(255, 0, 0, 0.795);
+    color: whitesmoke;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    position: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 138, 139);
+}
+
+#eliminaSubmit:hover {
+    box-shadow: 2px 2px 3px 3px rgb(138, 138, 139);
+    transition: 0.3s;
 }
