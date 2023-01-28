@@ -33,6 +33,6 @@ L'app può essere avviata in due modi: normale o debug (nel caso in cui vogliate
 ## Utilizzo 
 L'app da la possibilità di aggiungere gli allenamenti, visualizzarli in una tabella e rimuoverli fornendo l'id associato.
 Ci sono dei gruppi muscolari pre-inseriti, visualizzabili cliccando nell'input specifico. Possono essere modificati nella tabella "gruppo_muscolare" presente nel database.
-![tab_grp_musc](.\images\tab_gruppi_muscolari.png).
+![tab_grp_musc](./images/tab_gruppi_muscolari.png).
 
 
